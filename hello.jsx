@@ -21,7 +21,8 @@ class Services extends React.Component {
     }
 
     getItems(){
-		fetch('http://jsonplaceholder.typicode.com/posts').then(function(response) { 
+    	const url = 'http://jsonplaceholder.typicode.com/';
+		fetch(`${url}posts`).then(function(response) { 
 		
 			return response.json();
 		
@@ -37,7 +38,6 @@ class Services extends React.Component {
     }
 
 	render(){
-		this.getItems()
 		const listItems = this.props.items.map((item) => {
 			return (
 				<li key={item.name}>
