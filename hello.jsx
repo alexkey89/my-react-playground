@@ -13,15 +13,43 @@ class Services extends React.Component {
 	constructor(props, context) {
        super(props, context);
        this.state = {
-       		text: ''
+       		text: '',
+       		data: []
        }
 
        this.handleChange = this.handleChange.bind(this);
 
     }
 
+
+    loadFruits(){
+    	const init = {
+    		method: "GET"
+    	}
+
+    	fetch('fruits.json', init).then((response)=>{
+    	
+    		return response.json();
+    	
+    	}).then((data)=>{
+
+    		 this.setState({data: data})
+
+    	})
+    }
+
+
+	componentDidMount() {
+		
+		this.loadFruits()
+	
+	}
+
+
     getItems(){
+    	
     	const url = 'http://jsonplaceholder.typicode.com/';
+		
 		fetch(`${url}posts`).then(function(response) { 
 		
 			return response.json();
@@ -29,7 +57,7 @@ class Services extends React.Component {
 		}).then(function(data) {
 		
 			console.log(data); 
-		
+	
 		});
     }
 
@@ -38,10 +66,11 @@ class Services extends React.Component {
     }
 
 	render(){
-		const listItems = this.props.items.map((item) => {
+
+ 		const listItems = this.props.items.map((item) => {
 			return (
 				<li key={item.name}>
-					{item.name} | <small className="green">fruit</small>
+					{item.name} | <small className="green"><img src='fruits.png' height='20' /></small>
 				</li>
 			);
 		});
