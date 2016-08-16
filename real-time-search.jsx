@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 
 class RealTimeSearch extends React.Component {
   constructor(props){
@@ -13,17 +12,18 @@ class RealTimeSearch extends React.Component {
   }
 
   componentDidMount(){
-     axios.get('frameworks.json')
-    .then((response) => {
+    fetch('frameworks.json').then((response) =>{
+      
+      return response.json();
 
-       this.setState({
-        libraries: response.data.frameworks
-       })
+    }).then((response) =>{
 
+      this.setState({
+        libraries: response.frameworks
       })
-      .catch((error) => {
-        console.log(error);
-    });
+
+    })
+
   }
   
   handleChange(event){
