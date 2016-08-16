@@ -2,11 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Beer from './beer.jsx';
 
-const items = [{name: 'apple'}, 
-			 {name: 'orange'},
-			 {name: 'banana'},
-             {name: 'pineapple'},
-             {name: 'kiwi'}];
 
 class Services extends React.Component {
 	
@@ -23,17 +18,14 @@ class Services extends React.Component {
 
 
     loadFruits(){
-    	const init = {
-    		method: "GET"
-    	}
 
-    	fetch('fruits.json', init).then((response)=>{
+    	fetch('fruits.json').then((response)=>{
     	
     		return response.json();
     	
-    	}).then((data)=>{
+    	}).then((response)=>{
 
-    		 this.setState({data: data})
+    		 this.setState({data: response.fruits})
 
     	})
     }
@@ -46,28 +38,13 @@ class Services extends React.Component {
 	}
 
 
-    getItems(){
-    	
-    	const url = 'http://jsonplaceholder.typicode.com/';
-		
-		fetch(`${url}posts`).then(function(response) { 
-		
-			return response.json();
-		
-		}).then(function(data) {
-		
-			console.log(data); 
-	
-		});
-    }
-
     handleChange(event){
     	this.setState({text: event.target.value})
     }
 
 	render(){
 
- 		const listItems = this.props.items.map((item) => {
+ 		const listItems = this.state.data.map((item) => {
 			return (
 				<li key={item.name}>
 					{item.name} | <small className="green"><img src='fruits.png' height='20' /></small>
@@ -90,5 +67,5 @@ class Services extends React.Component {
 
 }
 
-ReactDOM.render(<Services title="mleczko power" items={items} />, 				
+ReactDOM.render(<Services title="mleczko power" />, 				
 	document.getElementById('app'));
