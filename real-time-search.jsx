@@ -1,13 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
 class RealTimeSearch extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      searchString: ''
+      searchString: '',
+      libraries: []
     }
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount(){
+     axios.get('frameworks.json')
+    .then((response) => {
+
+       this.setState({
+        libraries: response.data.frameworks
+       })
+
+      })
+      .catch((error) => {
+        console.log(error);
+    });
   }
   
   handleChange(event){
@@ -15,8 +31,8 @@ class RealTimeSearch extends React.Component {
   };
 
   render(){
-      let libraries = this.props.items,
-      searchString = this.state.searchString.trim().toLowerCase();
+      let libraries = this.state.libraries,
+          searchString = this.state.searchString.trim().toLowerCase();
     
       if(searchString.length > 0){
             libraries = libraries.filter((l) =>{
@@ -24,43 +40,29 @@ class RealTimeSearch extends React.Component {
             });
         }
     
-     return  (<div>
+     return  (
+              <div>
                     <input type="text" 
-                           value={this.state.searchString} 
+                           value={searchString} 
                            onChange={this.handleChange} 
                            placeholder="Type here" />
                     <ul> 
 
                         { libraries.map((l)=>{
-                            return (<li>{l.name} <a href={l.url}>{l.url}</a></li>)
+                            return (
+                                <li>
+                                  {l.name} <a href={l.url}>{l.url}</a>
+                                </li>
+                                )
                         }) }
 
                     </ul>
-                </div>)
+                </div>
+                )
   }
   
 }
 
-                                                                                                                                                             
-let libraries = [
-
-    { name: 'Backbone.js', url: 'http://documentcloud.github.io/backbone/'},
-    { name: 'AngularJS', url: 'https://angularjs.org/'},
-    { name: 'jQuery', url: 'http://jquery.com/'},
-    { name: 'Prototype', url: 'http://www.prototypejs.org/'},
-    { name: 'React', url: 'http://facebook.github.io/react/'},
-    { name: 'Ember', url: 'http://emberjs.com/'},
-    { name: 'Knockout.js', url: 'http://knockoutjs.com/'},
-    { name: 'Dojo', url: 'http://dojotoolkit.org/'},
-    { name: 'Mootools', url: 'http://mootools.net/'},
-    { name: 'Underscore', url: 'http://documentcloud.github.io/underscore/'},
-    { name: 'Lodash', url: 'http://lodash.com/'},
-    { name: 'Moment', url: 'http://momentjs.com/'},
-    { name: 'Express', url: 'http://expressjs.com/'},
-    { name: 'Koa', url: 'http://koajs.com/'},
-
-];
-
-ReactDOM.render( <RealTimeSearch items={ libraries } />, document.querySelector('.search'));
+ReactDOM.render( <RealTimeSearch />, document.querySelector('.search'));
 
 
