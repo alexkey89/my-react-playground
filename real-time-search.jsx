@@ -15,11 +15,11 @@ class RealTimeSearch extends React.Component {
   };
 
   render(){
-      var libraries = this.props.items,
+      let libraries = this.props.items,
       searchString = this.state.searchString.trim().toLowerCase();
     
       if(searchString.length > 0){
-            libraries = libraries.filter(function(l){
+            libraries = libraries.filter((l) =>{
                 return l.name.toLowerCase().match( searchString );
             });
         }
@@ -31,7 +31,7 @@ class RealTimeSearch extends React.Component {
                            placeholder="Type here" />
                     <ul> 
 
-                        { libraries.map(function(l){
+                        { libraries.map((l)=>{
                             return (<li>{l.name} <a href={l.url}>{l.url}</a></li>)
                         }) }
 
@@ -42,7 +42,7 @@ class RealTimeSearch extends React.Component {
 }
 
                                                                                                                                                              
-var libraries = [
+let libraries = [
 
     { name: 'Backbone.js', url: 'http://documentcloud.github.io/backbone/'},
     { name: 'AngularJS', url: 'https://angularjs.org/'},
