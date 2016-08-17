@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import Beer from './beer.jsx';
 
 
-class Services extends React.Component {
+class Services extends Component {
 	
 	constructor(props, context) {
        super(props, context);

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-class Fruitty extends React.Component {
+class Fruitty extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
