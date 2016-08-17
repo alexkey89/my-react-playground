@@ -42,6 +42,7 @@ class RealTimeSearch extends React.Component {
     
      return  (
               <div>
+                <h3>{this.props.title}</h3>
                     <input type="text" 
                            value={searchString} 
                            onChange={this.handleChange} 
@@ -63,6 +64,7 @@ class RealTimeSearch extends React.Component {
   
 }
 
-ReactDOM.render( <RealTimeSearch />, document.querySelector('.search'));
+ReactDOM.render( <RealTimeSearch title="Real time searh - dynamic data" />, 
+                  document.querySelector('.search'));
 
 

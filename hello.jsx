@@ -43,7 +43,6 @@ class Services extends React.Component {
     }
 
 	render(){
-
  		const listItems = this.state.data.map((item) => {
 			return (
 				<li key={item.name}>
@@ -54,12 +53,13 @@ class Services extends React.Component {
 
 		return (
 			<div className='services'>
-				<Beer BeerName='Tyskie' title='Beer level' />
+				<Beer BeerLevel='Medium' title="React's ng-repeat equivalent v1 - beers" />
 				<h3>{this.props.title}</h3>
 				<ul>
 					{listItems}
 				</ul>
-				<input type='text' onChange={this.handleChange} /> 
+				<h3>State - input length limits etc</h3> 
+				<input type='text' onChange={this.handleChange} />
 				<small> Word Count: {100 - this.state.text.length}</small>
 			</div>
 		);
@@ -67,5 +67,5 @@ class Services extends React.Component {
 
 }
 
-ReactDOM.render(<Services title="mleczko power" />, 				
-	document.getElementById('app'));
+ReactDOM.render(<Services title="React's ng-repeat equivalent v2 - fruits" />, 				
+				document.getElementById('app'));
