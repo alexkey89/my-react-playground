@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import AmazingComponent from './AmazingComponent';
 import {
     StyleSheet,
     Text,
@@ -7,7 +6,6 @@ import {
     TextInput,
     TouchableHighlight
 } from 'react-native';
-
 import Camera from 'react-native-camera';
 
 class CameraAccess extends Component{
@@ -18,13 +16,13 @@ class CameraAccess extends Component{
 		}
 	}
 
-	_switchCamera() {
+	switchCamera() {
         var state = this.state;
         state.cameraType = state.cameraType === Camera.constants.Type.back ? Camera.constants.Type.front : Camera.constants.Type.back;
         this.setState(state);
     }
 
-	_takePicture(){
+	takePicture(){
         this.refs.cam.capture(function(err, data) {
             console.log(err, data);
         });
