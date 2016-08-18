@@ -13,10 +13,13 @@ import {
   View
 } from 'react-native';
 
+import CameraAccess from './camera-access';
+
 class iosProject extends Component {
   render() {
     return (
       <View style={styles.container}>
+       <CameraAccess />
         <AmazingComponent title="Welcome bro" />
         <Text style={styles.welcome}>
           Welcome to React Native!
