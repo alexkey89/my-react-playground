@@ -41,7 +41,7 @@ class RealTimeSearch extends Component {
         }
     
      return  (
-              <div>
+              <div className="main-comp">
                 <h3>{this.props.title}</h3>
                     <input type="text" 
                            value={searchString} 
