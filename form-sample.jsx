@@ -33,8 +33,8 @@ class FormSample extends Component{
 			  <div>
 			  	 <form onSubmit={this.handleSubmit}>
 			  	 		<h1>{this.props.title}</h1>
-			  	 		<input type="text" name="username" onChange={this.handleUserChange} />
-			  	 		<input type="password" name="password" onChange={this.handlePassChange} />
+			  	 		<input required type="text" name="username" onChange={this.handleUserChange} />
+			  	 		<input required type="password" name="password" onChange={this.handlePassChange} />
 			  	 		<input type="submit" />
 			  	 </form>
 			  </div>

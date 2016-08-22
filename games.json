@@ -1,0 +1,21 @@
+{
+	"game": [{
+		"name": "Dimos Strovolou",
+		"date": "20/2/2017",
+		"type": 5,
+		"paid": true,
+		"price": 5
+	},{
+		"name": "Nuevo campo",
+		"date": "20/2/2017",
+		"type": 7,
+		"paid": true,
+		"price": 5
+	}, {
+		"name": "PAEEK",
+		"date": "21/2/2017",
+		"type": 5,
+		"paid": true,
+		"price": 5
+	}]
+}
