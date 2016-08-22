@@ -51,7 +51,7 @@ class RealTimeSearch extends Component {
 
                         { libraries.map((l)=>{
                             return (
-                                <li>
+                                <li key={l.name}>
                                   {l.name} <a href={l.url}>{l.url}</a>
                                 </li>
                                 )

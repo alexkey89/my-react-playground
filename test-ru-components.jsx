@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import RU from 'react-utils-helper';
+import _ from 'lodash';
 
 class RUstuff extends Component {
 	constructor(props){
