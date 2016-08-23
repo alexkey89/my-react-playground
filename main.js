@@ -1,3 +1,4 @@
+import Header from './header.jsx';
 import Hello from './hello.jsx';
 import Fruits from './test-ajax.jsx';
 import RealTimeSearch from './real-time-search.jsx';

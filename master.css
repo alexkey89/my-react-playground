@@ -13,7 +13,18 @@ body{
 
 form label{
 	display: block;
+}
 
+header {
+    background: beige;
+    padding: 10px;
+    text-align: center;
+}
+
+header ul li{
+	display: inline-block;
+	margin-left: 10px;
+	list-style-type: none;
 }
 
 footer{

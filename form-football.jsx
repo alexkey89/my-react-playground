@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 
-
 class FootballGames extends Component{
 	constructor(props){
 		super(props);
